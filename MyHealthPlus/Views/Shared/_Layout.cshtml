@@ -1,0 +1,163 @@
+﻿@using System.Configuration
+@using MyHealthPlus.DAL.ViewModels.Login
+@{
+    var account = (UserSession)Session["UserSession"];
+
+    ViewBag.RoleId = account.RoleId;
+}
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewBag.Title | MY HEALTH PLUS</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/Assets/Template/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Assets/Template/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Spinner CSS -->
+    <link href="~/Assets/Customs/Spinner/spinner.css" rel="stylesheet" />
+    <!-- Izi toast -->
+    <link href="~/Assets/izitoast/dist/css/iziToast.min.css" rel="stylesheet" />
+    <script src="~/Assets/izitoast/dist/js/iziToast.min.js"></script>
+    <!-- DataTables -->
+    <link href="~/Assets/Template/plugins/datatables-bs4/css/dataTables.bootstrap4.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="~/Assets/Template/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Assets/Template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script><!-- DataTables -->
+    <script src="~/Assets/Template/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="~/Assets/Template/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="~/Assets/Template/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- Moment JS -->
+    <script src="~/Assets/MomentJS/moment.min.js"></script>
+    <!-- data tables export-->
+    <script src="~/Assets/Template/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Assets/Template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/Assets/Template/plugins/jszip/jszip.min.js"></script>
+    <script src="~/Assets/Template/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/Assets/Template/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/Assets/Template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Assets/Template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Assets/Template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Assets/Template/dist/js/adminlte.min.js"></script>
+    <!-- Added Angular -->
+    <script src="~/Assets/Angular/angular/angular.min.js"></script>
+    <script src="~/Assets/Angular/angular-aria/angular-aria.min.js"></script>
+    <script src="~/Assets/Angular/angular-animate/angular-animate.min.js"></script>
+    <script src="~/Assets/Angular/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/Assets/Angular/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="~/Assets/Angular/angular-ui-bootstrap/dist/ui-bootstrap-tpls-3.0.5.min.js"></script>
+    <!-- Angular Spinner -->
+    <script src="~/MyJS/Spinners/angular-spinner.js"></script>
+    <!-- Idle -->
+    <script src="~/Assets/Angular/angular-idle/angular-idle.js"></script>
+    <!-- Directives -->
+    <script src="~/MyJS/Directives/spinner.directive.js"></script>
+    <!-- Factories -->
+    <script src="~/MyJS/Directives/jq-data-table.directive.js"></script>
+    <script src="~/MyJS/Factories/crud-data.factory.js"></script>
+    <script src="~/MyJS/Factories/toast.factory.js"></script>
+    <script src="~/MyJS/Factories/dropdown-data.factory.js"></script>
+    <!-- Controllers -->
+    <script src="~/MyJS/App.js@(ConfigurationManager.AppSettings["IMPORT_VERSION"])"></script>
+    <script src="~/MyJS/Controllers/home.controller.js@(ConfigurationManager.AppSettings["IMPORT_VERSION"])"></script>
+    <link href="~/Assets/Customs/template_custom_css.css@(ConfigurationManager.AppSettings["IMPORT_VERSION"])" rel="stylesheet" />
+    <script src="~/MyJS/Controllers/idle.controller.js"></script>
+</head>
+<body class="hold-transition sidebar-collapse layout-top-nav" ng-app="App" ng-controller="homeCtrl">
+    <div class="wrapper">
+        <script type="text/javascript">
+        var url = "@string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"))";
+        </script>
+        <div class="well">
+            <spinner name="html5spinner" ng-cloak="" ng-hide>
+                <div class="overlay"></div>
+                <div class="spinner">
+                    <div class="loading-pulse"></div>
+                </div>
+                <div class="please-wait">Please Wait...</div>
+            </spinner>
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand-md navbar-dark navbar-gray-dark">
+                <div class="container">
+                    <a href="#" class="navbar-brand">
+                        <span class="brand-text font-weight-light">MY HEALTH PLUS</span>
+                    </a>
+
+                    <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                        <!-- Left navbar links -->
+                        <ul class="navbar-nav">
+                            
+                        </ul>
+                            
+                        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+
+                            @if (@ViewBag.RoleId == 3 || @ViewBag.RoleId == 1)
+                            {
+                                Html.RenderPartial("PartialViews/_staffPartialView");
+                            }
+                            else if (@ViewBag.RoleId == 2)
+                            {
+                                Html.RenderPartial("PartialViews/_doctorPartialView");
+                            }
+                            else
+                            {
+
+                            }
+                            <li class="nav-item">
+                                <a href="#" ng-click="logout();" class="nav-link">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- /.navbar -->
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Main content -->
+                <div class="content">
+                    <div class="container" ng-controller="idleCtrl">
+                        <br />
+                        @RenderBody()
+                        <!-- /.row -->
+                    </div><!-- /.container-fluid -->
+                </div>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+        </div>
+
+        <!-- Main Footer -->
+        <footer class="main-footer shadow">
+            <div class="container" style="position: relative;">
+
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="~/Assets/Template/dist/js/adminlte.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            bsCustomFileInput.init();
+            console.log('bsCustomFileInput', bsCustomFileInput);
+        });
+
+    </script>
+</body>
+</html>

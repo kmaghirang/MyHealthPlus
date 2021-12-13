@@ -1,0 +1,4 @@
+﻿
+    <li class="nav-item  @(ViewContext.RouteData.Values["action"].ToString() == "Users" ? "active" : "")">
+        <a href="@Url.Action("Users", "Manage")" class="nav-link">Users</a>
+    </li>

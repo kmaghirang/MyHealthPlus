@@ -1,0 +1,11 @@
+﻿
+
+<li class="nav-item  @(ViewContext.RouteData.Values["action"].ToString() == "MyAppointments" ? "active" : "")">
+    <a href="@Url.Action("MyAppointments", "Home")" class="nav-link">My Appointments</a>
+</li>
+<li class="nav-item  @(ViewContext.RouteData.Values["action"].ToString() == "MySchedule" ? "active" : "")">
+    <a href="@Url.Action("MySchedule", "Home")" class="nav-link">Doctor's Schedule</a>
+</li>
+<li class="nav-item  @(ViewContext.RouteData.Values["action"].ToString() == "Users" ? "active" : "")">
+    <a href="@Url.Action("Users", "Manage")" class="nav-link">Users</a>
+</li>

@@ -1,0 +1,71 @@
+﻿@using MyHealthPlus.DAL.ViewModels.Login
+
+@{
+    ViewBag.Title = "Users";
+
+    var account = (UserSession)Session["UserSession"];
+
+    ViewBag.UserId = account.UserId;
+    ViewBag.UserName = account.UserName;
+
+    <script src="~/MyJS/Controllers/Manage/users.controller.js"></script>
+}
+
+<div ng-controller="usersCtrl" ng-init="initialize('@ViewBag.UserId','@ViewBag.UserName')">
+    <div class="card card-blue shadow">
+        <div class="card-blue-header">
+            <h3 class="card-title">Users</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="dataTable" class="table table-striped table-bordered table-hover" jq-data-table table-options="dataTable.options" table-data="dataTable.data"></table>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+    <div class="modal fade" id="dataModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Register</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form name="inputform">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" class="form-control" placeholder="Enter User Name" ng-model="data.UserName" disabled="disabled">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Last Name" ng-model="data.LastName" disabled="disabled">
+                        </div>
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" placeholder="Enter First Name" ng-model="data.FirstName" disabled="disabled">
+                        </div>
+                        <div class="form-group">
+                            <label>Middle Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Middle Name" ng-model="data.MiddleName" disabled="disabled">
+                        </div>
+                        <div class="form-group">
+                            <label>Role<span class="span-required">*</span></label>
+                            <select class="form-control" ng-model="data.RoleId" ng-options="x.RoleId as x.Name for x in RolesList"></select>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="onCancel()"><i class="fa fa-times-circle"></i> CANCEL</button>
+                        <button type="button" class="btn btn-success" ng-click="Save()" ng-disabled="inputform.$invalid"><i class="fa fa-save"></i> SAVE</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+

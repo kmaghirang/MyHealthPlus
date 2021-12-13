@@ -1,0 +1,188 @@
+﻿body {
+}
+
+
+.bg {
+    background-image: url('Login/images/bg-img.jpg');
+}
+
+.half .contents {
+    width: 100%;
+    background-image: url(Login/images/bg-img.jpg);
+}
+
+
+
+.login-box, .register-box {
+    width: 720px;
+}
+
+.loading-pulse:before, .loading-pulse:after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    top: 45% !important;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-animation: pulse 750ms infinite;
+    animation: pulse 750ms infinite;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #78c2ad;
+    border-color: #78c2ad;
+}
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #5eb69d;
+        border-color: #55b298;
+    }
+
+    .btn-primary.disabled {
+        color: #fff;
+        background-color: #78c2ad;
+        border-color: #78c2ad;
+    }
+
+.btn-secondary {
+    color: #fff;
+    background-color: #ee686e;
+    border-color: #ec5d63;
+}
+
+    .btn-secondary:hover {
+        color: #fff;
+        background-color: #ef7479;
+        border-color: #ee686e;
+    }
+
+    .btn-secondary.disabled {
+        color: #fff;
+        background-color: #f3969a;
+        border-color: #f3969a;
+    }
+
+
+.btn-success {
+    color: #fff;
+    background-color: #56cc9d;
+    border-color: #56cc9d;
+}
+
+    .btn-success:hover {
+        color: #fff;
+        background-color: #3ac18c;
+        border-color: #37b885;
+    }
+
+    .btn-success.disabled {
+        color: #fff;
+        background-color: #56cc9d;
+        border-color: #56cc9d;
+    }
+
+.btn-info {
+    color: #fff;
+    background-color: #44b3ca;
+    border-color: #3aafc7;
+}
+
+    .btn-info:hover {
+        color: #fff;
+        background-color: #4eb7cd;
+        border-color: #44b3ca;
+    }
+
+    .btn-info.disabled {
+        color: #fff;
+        background-color: #6cc3d5;
+        border-color: #6cc3d5;
+    }
+
+.btn-warning {
+    color: #fff;
+    background-color: #ffce67;
+    border-color: #ffce67;
+}
+
+    .btn-warning:hover {
+        color: #fff;
+        background-color: #ffc241;
+        border-color: #ffbe34;
+    }
+
+    .btn-warning.disabled {
+        color: #fff;
+        background-color: #ffce67;
+        border-color: #ffce67;
+    }
+
+
+.btn-danger {
+    color: #fff;
+    background-color: #ff7851;
+    border-color: #ff7851;
+}
+
+    .btn-danger:hover {
+        color: #fff;
+        background-color: #ff5a2b;
+        border-color: #ff501e;
+    }
+
+    .btn-danger.disabled {
+        color: #fff;
+        background-color: #ff7851;
+        border-color: #ff7851;
+    }
+
+.btn-link, .btn-link:hover {
+    color: #78c2ad;
+}
+
+    .btn-link.disabled {
+        color: #888;
+        pointer-events: none;
+    }
+
+.modal-header {
+    background: #aaaaaa;
+    color: white;
+}
+
+
+.agreement-logo {
+    height: 70px;
+}
+
+
+.align-right {
+    text-align: right;
+}
+
+p {
+    color: #b3b3b3;
+    font-weight: 300;
+    margin-left: 80px;
+    margin-right: 80px;
+    color: black;
+    font-size: 20px;
+    text-align: justify;
+    margin-top: 20px;
+    text-indent: 50px;
+}
+
+.span-authorization {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+span.span-required {
+    color: #ff0000;
+}

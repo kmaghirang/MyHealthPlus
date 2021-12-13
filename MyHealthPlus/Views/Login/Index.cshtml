@@ -1,0 +1,158 @@
+﻿@using System.Configuration
+
+@{
+    ViewBag.Title = "My Health Plus";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Assets/Customs/Login/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/Assets/Customs/Login/css/owl.carousel.min.css">
+    <!-- jQuery -->
+    <script src="~/Assets/Template/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Assets/Template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Assets/Customs/Login/css/bootstrap.min.css">
+    <!-- Spinner CSS -->
+    <link href="~/Assets/Customs/Spinner/spinner.css" rel="stylesheet" />
+    <!-- Izi toast -->
+    <link href="~/Assets/izitoast/dist/css/iziToast.min.css" rel="stylesheet" />
+    <script src="~/Assets/izitoast/dist/js/iziToast.min.js"></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="~/Assets/Customs/Login/css/style.css">
+    <link href="~/Assets/Customs/login.custom.css" rel="stylesheet" />
+    <!-- Added Angular -->
+    <script src="~/Assets/Angular/angular/angular.min.js"></script>
+    <script src="~/Assets/Angular/angular-aria/angular-aria.min.js"></script>
+    <script src="~/Assets/Angular/angular-animate/angular-animate.min.js"></script>
+    <script src="~/Assets/Angular/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/Assets/Angular/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="~/Assets/Angular/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="~/Assets/ngFileUpload/ng-file-upload.min.js"></script>
+    <!-- Angular Spinner -->
+    <script src="~/MyJS/Spinners/angular-spinner.js"></script>
+    <!-- Idle -->
+    <script src="~/Assets/Angular/angular-idle/angular-idle.js"></script>
+    <!-- Directives -->
+    <script src="~/MyJS/Directives/jq-data-table.directive.js"></script>
+    <script src="~/MyJS/Directives/spinner.directive.js"></script>
+    <!-- Factories -->
+    <script src="~/MyJS/Factories/crud-data.factory.js"></script>
+    <script src="~/MyJS/Factories/toast.factory.js"></script>
+    <script src="~/MyJS/Factories/dropdown-data.factory.js"></script>
+    <!-- Controllers -->
+    <script src="~/MyJS/App.js@(ConfigurationManager.AppSettings["IMPORT_VERSION"])"></script>
+    <script src="~/MyJS/Controllers/home.controller.js@(ConfigurationManager.AppSettings["IMPORT_VERSION"])"></script>
+    <script src="~/MyJS/Controllers/login.controller.js"></script>
+    <link href="~/Assets/Customs/login.custom.css@(ConfigurationManager.AppSettings["IMPORT_VERSION"])" rel="stylesheet" />
+    <title>My Health Plus Login</title>
+</head>
+
+<body ng-app="App">
+    <div ng-controller="userLoginCtrl">
+        <div class="well">
+            <script type="text/javascript">
+        var url = "@string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"))";
+            </script>
+            <spinner name="html5spinner" ng-cloak="" ng-hide>
+                <div class="overlay"></div>
+                <div class="spinner">
+                    <div class="loading-pulse"></div>
+                </div>
+                <div class="please-wait">Please Wait...</div>
+            </spinner>
+            <div class="d-md-flex half">
+                <div class="contents">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-md-12">
+                                <div class="form-block mx-auto">
+                                    <div class="text-center mb-5">
+                                        <h3 class="text-uppercase">MY HEALTH PLUS</h3>
+                                    </div>
+                                    <form action="#" method="post">
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" placeholder="Enter Username" id="username" ng-model="data.UserName">
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control" placeholder="Enter Password" id="password" ng-model="data.Password">
+                                        </div>
+                                        <hr />
+                                        <button type="button" class="btn btn-block py-2 btn-primary" ng-click="Login()">LOGIN</button>
+                                        <span class="text-center my-3 d-block">or</span>
+
+                                        <div class="">
+                                            <button type="button" class="btn btn-block py-2 btn-info" ng-click="modalOpen('#dataModal','Add New')">REGISTER</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="dataModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Register</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form name="inputform2">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Last Name" ng-model="register.LastName" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" class="form-control" placeholder="Enter First Name" ng-model="register.FirstName" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>Middle Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Middle Name" ng-model="register.MiddleName" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>User Name</label>
+                                <input type="text" class="form-control" placeholder="Enter User Name" ng-model="register.UserName" ng-blur="checkUsername(register.UserName)" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Enter Password" ng-model="register.Password" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>Validate Password</label>
+                                <input type="password" class="form-control" placeholder="Validate Password" ng-model="register.ValidatePassword" required="required">
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="onCancel()"><i class="fa fa-times-circle"></i> CANCEL</button>
+                            <button type="button" class="btn btn-success" ng-click="Save()" ng-disabled="inputform2.$invalid"><i class="fa fa-save"></i> REGISTER</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </div>
+
+    <script src="~/Assets/Customs/Login/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Assets/Customs/Login/js/popper.min.js"></script>
+    <script src="~/Assets/Customs/Login/js/bootstrap.min.js"></script>
+    <script src="~/Assets/Customs/Login/js/main.js"></script>
+</body>
+</html>

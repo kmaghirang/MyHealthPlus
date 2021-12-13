@@ -1,0 +1,11 @@
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\bin\Debug\MyHealthPlus.DAL.dll.config
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\bin\Debug\MyHealthPlus.DAL.dll
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\bin\Debug\MyHealthPlus.DAL.pdb
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\bin\Debug\EntityFramework.dll
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\bin\Debug\EntityFramework.xml
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\obj\Debug\MyHealthPlus.DAL.csproj.CoreCompileInputs.cache
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\obj\Debug\MyHealthPlus.DAL.dll
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\obj\Debug\MyHealthPlus.DAL.pdb
+C:\Users\kmaghirang\Desktop\New Project\MyHealthPlus\MyHealthPlus.DAL\obj\Debug\MyHealthPlus.DAL.csproj.AssemblyReference.cache
